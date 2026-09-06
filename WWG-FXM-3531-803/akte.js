@@ -1,6 +1,5 @@
 
 const recipient = "Marie";
-
 const statusEl = document.getElementById("status");
 const revealEl = document.getElementById("reveal");
 const tapBtn = document.getElementById("tapBtn");
