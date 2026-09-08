@@ -129,71 +129,88 @@ h1 {
 .connecting-subtitle { margin-top: 8px; font-size: 12px; color: var(--muted); }
 
  .phone-orb {
-  width: 160px;
+  width: 205px;
   margin: 0 auto 22px;
   animation: gentlePulse 2.8s ease-in-out infinite;
 }
 
 .phone-plate {
-  width: 142px;
-  height: 142px;
+  width: 194px;
+  height: 178px;
   margin: 0 auto;
   display: grid;
   place-items: center;
 }
 
-.phone-plate--sixties {
-  border: 2px solid rgba(234,217,161,.52);
-  outline: 1px solid rgba(0,0,0,.45);
+.phone-plate--amt {
+  border: 2px solid rgba(234,217,161,.50);
+  outline: 1px solid rgba(0,0,0,.48);
   outline-offset: -7px;
-  border-radius: 4px;
+  border-radius: 5px;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.045), rgba(0,0,0,.10)),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12)),
     #2f7d52;
   box-shadow:
-    0 12px 24px rgba(0,0,0,.30),
-    inset 0 0 0 4px rgba(7,39,29,.42),
+    0 13px 27px rgba(0,0,0,.31),
+    inset 0 0 0 4px rgba(7,39,29,.43),
     inset 0 1px rgba(255,255,255,.10);
 }
 
-.retro-phone {
-  width: 126px;
-  height: 118px;
+.amt-phone {
+  width: 174px;
+  height: 156px;
   overflow: visible;
 }
 
-.retro-handset,
-.retro-body {
-  fill: #e7d8a4;
+.phone-shadow { fill: rgba(5,31,23,.40); }
+.phone-body { fill: #ead9a1; }
+.phone-body-rim {
+  fill: #2a6f49;
+  stroke: #173f2e;
+  stroke-width: 3;
 }
-
-.retro-cradle {
+.handset { fill: #ead9a1; stroke: #173f2e; stroke-width: 3; }
+.earpiece { fill: #d9c58b; stroke: #173f2e; stroke-width: 3; }
+.cradle { fill: #173f2e; }
+.dial-outer { fill: #ead9a1; stroke: #173f2e; stroke-width: 4; }
+.dial-ring { fill: #173f2e; stroke: #d9c58b; stroke-width: 2.8; }
+.dial-center { fill: #d9c58b; stroke: #173f2e; stroke-width: 2; }
+.dial-holes circle { fill: #2a6f49; stroke: #ead9a1; stroke-width: 1.8; }
+.finger-stop { fill: #ead9a1; stroke: #173f2e; stroke-width: 1.7; }
+.number-window { fill: #f0e2b2; stroke: #173f2e; stroke-width: 1.7; }
+.number-text {
   fill: #173f2e;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
-
-.retro-dial-outer {
-  fill: #173f2e;
-  stroke: #e7d8a4;
-  stroke-width: 3.4;
-}
-
-.retro-dial-inner,
-.retro-dial-hole {
-  fill: #e7d8a4;
-}
-
-.retro-finger-stop {
-  fill: #e7d8a4;
+.number-text.small { font-size: 6.2px; letter-spacing: .7px; }
+.cord {
+  fill: none;
+  stroke: #ead9a1;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .phone-caption {
-  margin-top: 8px;
+  margin-top: 7px;
   font-family: "Courier New", Courier, monospace;
   font-size: 8px;
   font-weight: 700;
-  letter-spacing: .12em;
-  color: rgba(234,217,161,.60);
+  letter-spacing: .10em;
+  color: rgba(234,217,161,.62);
 }
+
+.button-phone {
+  width: 25px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+.button-phone .button-dial { fill: #2d9f61; stroke: #fff; stroke-width: 2.4; }
+.button-phone .button-dial-center { fill: #fff; }
 
 @keyframes gentlePulse {
   0%, 100% { transform: translateY(0); }
@@ -270,9 +287,9 @@ footer {
   .hotline-shell { width: min(100% - 20px, 680px); justify-content: flex-start; }
   .agency-head { margin-top: 16px; }
   .call-card { min-height: 410px; border-radius: 16px; }
-  .phone-orb { width: 142px; }
-  .phone-plate { width: 124px; height: 124px; }
-  .retro-phone { width: 112px; height: 106px; }
+  .phone-orb { width: 178px; }
+  .phone-plate { width: 166px; height: 153px; }
+  .amt-phone { width: 150px; height: 137px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
