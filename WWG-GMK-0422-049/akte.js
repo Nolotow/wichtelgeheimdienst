@@ -23,28 +23,28 @@ async function playSignal(){
   if(ctx.state === "suspended") await ctx.resume();
 
   const master = ctx.createGain();
-  master.gain.value = .11;
+  master.gain.value = .22;
   master.connect(ctx.destination);
 
-  const notes = [659.25, 783.99, 987.77, 783.99];
-  const now = ctx.currentTime + .04;
+  function bell(freq, when, dur=1.5){
+    const partials=[1,2.01,2.72,3.95], gains=[1,.38,.20,.10];
+    partials.forEach((m,i)=>{
+      const osc=ctx.createOscillator(), g=ctx.createGain();
+      osc.type="sine"; osc.frequency.setValueAtTime(freq*m,when);
+      g.gain.setValueAtTime(.0001,when);
+      g.gain.exponentialRampToValueAtTime(gains[i]*.32,when+.015);
+      g.gain.exponentialRampToValueAtTime(.0001,when+dur);
+      osc.connect(g); g.connect(master); osc.start(when); osc.stop(when+dur+.05);
+    });
+  }
 
-  notes.forEach((freq, i) => {
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = "sine";
-    osc.frequency.value = freq;
-    gain.gain.setValueAtTime(.0001, now + i * .18);
-    gain.gain.exponentialRampToValueAtTime(.16, now + i * .18 + .015);
-    gain.gain.exponentialRampToValueAtTime(.0001, now + i * .18 + .55);
-    osc.connect(gain);
-    gain.connect(master);
-    osc.start(now + i * .18);
-    osc.stop(now + i * .18 + .6);
-  });
+  const now=ctx.currentTime+.05;
+  [[659.25,0],[659.25,.22],[659.25,.44],[659.25,.86],[659.25,1.08],
+   [659.25,1.30],[659.25,1.74],[783.99,1.96],[523.25,2.18],
+   [587.33,2.40],[659.25,2.62]].forEach(([f,t])=>bell(f,now+t));
 
-  await sleep(1100);
-  try { await ctx.close(); } catch(_) {}
+  await sleep(4200);
+  try{ await ctx.close(); }catch(e){}
 }
 
 async function openFile(){
