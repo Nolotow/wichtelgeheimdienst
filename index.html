@@ -9,6 +9,24 @@
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/favicon.png">
   <link rel="stylesheet" href="/assets/home.css">
+  <style>
+    .service-hotline-link {
+      display: inline-block;
+      margin-top: 7px;
+      color: inherit;
+      font-size: 0.92em;
+      opacity: 0.58;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      border-bottom-color: rgba(255,255,255,.22);
+      transition: opacity .18s ease, border-color .18s ease;
+    }
+    .service-hotline-link:hover,
+    .service-hotline-link:focus-visible {
+      opacity: 0.95;
+      border-bottom-color: currentColor;
+    }
+  </style>
 </head>
 <body>
 <main>
@@ -45,7 +63,8 @@
 
   <div class="footer">
     WWG · Zentrale Dienststelle für weihnachtliche Aufklärung<br>
-    Zugriff auf Wichtelakten ausschließlich nach Maßgabe des WWGG und der WWGG-DV.
+    Zugriff auf Wichtelakten ausschließlich nach Maßgabe des WWGG und der WWGG-DV.<br>
+    <a class="service-hotline-link" href="/servicehotline/">Servicehotline</a>
   </div>
 </main>
 <script src="/assets/home.js"></script>
