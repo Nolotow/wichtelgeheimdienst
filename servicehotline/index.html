@@ -3,129 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#071f18">
-  <meta name="robots" content="noindex,follow">
-  <title>WWG · Servicehotline</title>
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="index,follow">
+  <title>WWG</title>
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/favicon.png">
-  <link rel="stylesheet" href="/assets/servicehotline.css">
+  <link rel="stylesheet" href="/assets/home.css">
+  <style>
+    .service-hotline-link {
+      display: inline-block;
+      margin-top: 7px;
+      color: inherit;
+      font-size: 0.92em;
+      opacity: 0.58;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      border-bottom-color: rgba(255,255,255,.22);
+      transition: opacity .18s ease, border-color .18s ease;
+    }
+    .service-hotline-link:hover,
+    .service-hotline-link:focus-visible {
+      opacity: 0.95;
+      border-bottom-color: currentColor;
+    }
+  </style>
 </head>
 <body>
-  <main class="hotline-shell">
-    <header class="agency-head">
-      <div class="agency-kicker">Weihnachtswichtelgeheimdienst</div>
-      <h1>Servicehotline</h1>
-      <div class="agency-subline">Zentrale Dienststelle für weihnachtliche Aufklärung</div>
-    </header>
+<main>
+  <img class="logo" src="/assets/wwg-logo.png" alt="Logo des Weihnachtswichtelgeheimdienstes">
 
-    <section class="call-card" aria-live="polite">
-      <div id="preCall" class="pre-call">
-        <p class="intro">
-          Für Auskünfte zu Wichtelakten, Geschenkangelegenheiten und sonstigen
-          weihnachtlichen Verwaltungsvorgängen steht Ihnen die zentrale Servicehotline zur Verfügung.
-        </p>
-        <button id="contactButton" class="contact-button" type="button">
-          <svg class="button-phone" viewBox="0 0 64 42" aria-hidden="true" focusable="false">
-            <path d="M8 14C15 7 23 4 32 4s17 3 24 10l-6 8c-5-3-11-5-18-5s-13 2-18 5l-6-8z"/>
-            <path d="M18 20h28l5 17H13l5-17z"/>
-            <circle cx="32" cy="29" r="7" class="button-dial"/>
-            <circle cx="32" cy="29" r="2.5" class="button-dial-center"/>
-          </svg>
-          <span>Servicehotline kontaktieren</span>
-        </button>
-        <p class="availability">Erreichbarkeit vorbehaltlich verfügbarer Wichtelsachbearbeitung.</p>
-      </div>
+  <div class="countdown-wrap" aria-label="Countdown bis Weihnachten">
+    <div class="countdown-label">Verbleibende Zeit bis zum 24.12.2026</div>
+    <div id="countdown">000:00:00:00:000</div>
+  </div>
 
-      <div id="connecting" class="connecting" hidden>
-        <div class="connecting-ring" aria-hidden="true"></div>
-        <div class="connecting-title">Verbindung wird hergestellt …</div>
-        <div class="connecting-subtitle">Nordpol-Gateway wird angewählt.</div>
-      </div>
+  <div class="kicker">Weihnachtswichtelgeheimdienst</div>
+  <h1>ZENTRALE DIENSTSTELLE</h1>
 
-      <div id="activeCall" class="active-call" hidden>
-        <div class="phone-orb" aria-hidden="true">
-          <div class="phone-plate phone-plate--amt">
-            <svg class="amt-phone" viewBox="0 0 220 190" focusable="false">
-              <!-- klassischer deutscher Tisch-Fernsprechapparat, 1950er/60er -->
-              <path class="phone-shadow" d="M48 60h124l18 97H30L48 60z"/>
-              <path class="phone-body" d="M52 61h116c7 0 13 5 15 12l14 75c2 9-5 18-15 18H38c-10 0-17-9-15-18l14-75c2-7 8-12 15-12z"/>
-              <path class="phone-body-rim" d="M45 70h130l11 74H34L45 70z"/>
+  <section class="panel">
+    <h2 class="panel-title">Wichtelakte aufrufen</h2>
+    <p class="help">Geben Sie das auf Ihrem amtlichen Schreiben ausgewiesene Aktenzeichen ein.</p>
+    <form id="caseForm" class="case-form">
+      <input id="caseInput" class="case-input" type="text"
+             placeholder="WWG-XXX-0000-000"
+             autocomplete="off" autocapitalize="characters"
+             aria-label="Aktenzeichen">
+      <button class="button" type="submit">Akte öffnen</button>
+    </form>
+    <div id="caseError" class="error" aria-live="polite"></div>
+  </section>
 
-              <!-- Hörer mit deutlich getrennten Hörmuscheln -->
-              <path class="handset" d="M40 47c0-8 5-15 13-18 17-7 36-10 57-10s40 3 57 10c8 3 13 10 13 18 0 5-2 10-6 14l-10 10c-4 4-10 5-15 2-11-6-24-9-39-9s-28 3-39 9c-5 3-11 2-15-2L46 61c-4-4-6-9-6-14z"/>
-              <ellipse class="earpiece" cx="57" cy="48" rx="18" ry="16"/>
-              <ellipse class="earpiece" cx="163" cy="48" rx="18" ry="16"/>
-              <rect class="cradle" x="65" y="56" width="90" height="15" rx="6"/>
+  <section class="panel">
+    <h2 class="panel-title">Rechtsgrundlagen</h2>
+    <div class="links">
+      <a class="button secondary" href="/wwgg/">Weihnachtswichtelgeheimhaltungsgesetz (WWGG)</a>
+      <a class="button secondary" href="/wwgg-dv/">WWGG-Durchführungsverordnung (WWGG-DV)</a>
+    </div>
+  </section>
 
-              <!-- markante Wählscheibe -->
-              <circle class="dial-outer" cx="110" cy="115" r="43"/>
-              <circle class="dial-ring" cx="110" cy="115" r="34"/>
-              <circle class="dial-center" cx="110" cy="115" r="15"/>
-
-              <!-- Fingerlöcher -->
-              <g class="dial-holes">
-                <circle cx="110" cy="84" r="6.3"/>
-                <circle cx="128.2" cy="89.9" r="6.3"/>
-                <circle cx="139.4" cy="105.4" r="6.3"/>
-                <circle cx="139.4" cy="124.6" r="6.3"/>
-                <circle cx="128.2" cy="140.1" r="6.3"/>
-                <circle cx="110" cy="146" r="6.3"/>
-                <circle cx="91.8" cy="140.1" r="6.3"/>
-                <circle cx="80.6" cy="124.6" r="6.3"/>
-                <circle cx="80.6" cy="105.4" r="6.3"/>
-                <circle cx="91.8" cy="89.9" r="6.3"/>
-              </g>
-
-              <!-- Fingeranschlag + Nummernfeld -->
-              <path class="finger-stop" d="M148 126h20v9h-17z"/>
-              <rect class="number-window" x="90" y="103" width="40" height="24" rx="2"/>
-              <text x="110" y="113" text-anchor="middle" class="number-text">WWG</text>
-              <text x="110" y="122" text-anchor="middle" class="number-text small">24-12</text>
-
-              <!-- Spiralkabel -->
-              <path class="cord" d="M181 63c18 4 23 16 17 28-4 8-14 10-15 19-1 8 11 11 15 4 5-9-7-17-13-9-7 9 5 18 14 13"/>
-            </svg>
-          </div>
-          <div class="phone-caption">FERNSPRECHAPPARAT · ZENTRALER AMTSANSCHLUSS</div>
-        </div>
-
-        <div class="call-status">VERBUNDEN · WARTESCHLEIFE</div>
-        <h2>Bitte bleiben Sie in der Leitung.</h2>
-        <p id="queueMessage" class="queue-message">Alle Wichtelsachbearbeiter befinden sich derzeit im Gespräch.</p>
-
-        <div class="queue-block">
-          <div class="queue-label">Ihre aktuelle Position in der Warteschlange</div>
-          <div id="queueNumber" class="queue-number">187.432</div>
-        </div>
-
-        <div class="wait-time">
-          Voraussichtliche Wartezeit:
-          <strong id="estimatedTime">wird ermittelt …</strong>
-        </div>
-
-        <button id="hangupButton" class="hangup-button" type="button">
-          <span class="hangup-icon" aria-hidden="true">☎</span>
-          <span>Verbindung beenden</span>
-        </button>
-
-        <p class="warning">
-          Das Beenden der Verbindung kann zum Verlust Ihrer gegenwärtigen Warteschlangenposition führen.
-        </p>
-      </div>
-    </section>
-
-    <a class="back-link" href="/">Zurück zur Zentralen Dienststelle</a>
-
-    <footer>
-      WWG · Referat S/HOT · Bürger- und Wichtelservice<br>
-      Verbindungsdaten werden gemäß den einschlägigen weihnachtlichen Geheimhaltungsvorschriften verarbeitet.
-    </footer>
-  </main>
-
-  <audio id="holdMusic" preload="auto" loop>
-    <source src="/assets/audio/wwg-warteschleife.mp3" type="audio/mpeg">
-  </audio>
-
-  <script src="/assets/servicehotline.js"></script>
+  <div class="footer">
+    WWG · Zentrale Dienststelle für weihnachtliche Aufklärung<br>
+    Zugriff auf Wichtelakten ausschließlich nach Maßgabe des WWGG und der WWGG-DV.<br>
+    <a class="service-hotline-link" href="/servicehotline/">Servicehotline</a>
+  </div>
+</main>
+<script src="/assets/home.js"></script>
 </body>
 </html>
