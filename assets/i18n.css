@@ -1,0 +1,11 @@
+
+.wwg-langbar{width:min(100%,860px);margin:0 auto 8px;display:flex;justify-content:flex-end;position:relative;z-index:30;font-family:Arial,Helvetica,sans-serif}
+.wwg-lang-switch{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(180,180,180,.38);background:rgba(0,0,0,.72);padding:5px 7px;line-height:1;backdrop-filter:blur(5px)}
+.wwg-lang-switch span{font-size:.67rem;color:#5d5d5d}
+.wwg-lang-button{appearance:none;border:0;background:transparent;color:#7e7e7e;padding:3px 4px;font:700 .68rem/1 Arial,Helvetica,sans-serif;letter-spacing:.08em;cursor:pointer}
+.wwg-lang-button:hover,.wwg-lang-button:focus-visible{color:#fff;outline:1px solid #888;outline-offset:2px}
+.wwg-lang-button.active{color:#f2f2f2}
+@media(max-width:560px){.wwg-langbar{margin-bottom:7px}.wwg-lang-switch{padding:5px 6px}.wwg-lang-button{font-size:.66rem}}
+
+body > .wwg-langbar + main{margin-top:0}
+body > .wwg-langbar + .hotline-shell{min-height:calc(100vh - 36px);padding-top:18px}

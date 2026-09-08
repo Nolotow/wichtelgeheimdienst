@@ -51,7 +51,7 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  error.textContent = "Aktenzeichen unbekannt oder ungültig.";
+  error.textContent = window.WWGI18N ? WWGI18N.t("home.case_error", "Aktenzeichen unbekannt oder ungültig.") : "Aktenzeichen unbekannt oder ungültig.";
   input.focus();
 });
 
@@ -76,15 +76,15 @@ input.addEventListener("input", () => {
   document.addEventListener('keydown',e=>{if(e.key==='Escape') shut()});
   if(new URLSearchParams(location.search).get('admin')==='1') open();
   form.addEventListener('submit',async e=>{
-    e.preventDefault(); error.textContent='Legitimation wird geprüft …';
+    e.preventDefault(); error.textContent=window.WWGI18N?WWGI18N.t('home.admin_checking','Legitimation wird geprüft …'):'Legitimation wird geprüft …';
     const API=String(window.WWG_BACKEND_URL||'').replace(/\/$/,'');
-    if(!API||API.includes('DEIN-WWG-WORKER')){error.textContent='Backend noch nicht eingerichtet.';return}
+    if(!API||API.includes('DEIN-WWG-WORKER')){error.textContent=window.WWGI18N?WWGI18N.t('home.admin_backend','Backend noch nicht eingerichtet.'):'Backend noch nicht eingerichtet.';return}
     try{
       const res=await fetch(API+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passphrase:pass.value})});
-      if(!res.ok){error.textContent='Legitimation abgelehnt.';return}
+      if(!res.ok){error.textContent=window.WWGI18N?WWGI18N.t('home.admin_denied','Legitimation abgelehnt.'):'Legitimation abgelehnt.';return}
       const data=await res.json();
       sessionStorage.setItem('wwg_admin_token',data.token);
       location.href='/behoerdenleitung/';
-    }catch(_){error.textContent='Verbindung zur Behördenleitung fehlgeschlagen.'}
+    }catch(_){error.textContent=window.WWGI18N?WWGI18N.t('home.admin_connection','Verbindung zur Behördenleitung fehlgeschlagen.'):'Verbindung zur Behördenleitung fehlgeschlagen.'}
   });
 })();

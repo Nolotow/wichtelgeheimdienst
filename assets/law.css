@@ -40,3 +40,12 @@ a{color:inherit}
 .document-footer{border-top:1px solid var(--line);margin-top:55px;padding-top:18px;color:#777;font-family:Arial,Helvetica,sans-serif;font-size:.7rem;line-height:1.55}
 @media(max-width:850px){.page{display:block;padding-top:22px}.toc{display:none}.mobile-toc{display:block}.site-header .authority span{display:none}}
 @media(max-width:520px){.site-header{padding:8px 12px}.site-header img{width:40px;height:40px}.authority strong{font-size:.61rem;letter-spacing:.1em}.back{padding:8px 9px;font-size:.62rem}.page{padding-left:15px;padding-right:15px}.normtext{font-size:.98rem}}
+
+/* Mobile optimisation for long German legal titles */
+.document h1,.short-title{max-width:100%;overflow-wrap:anywhere;word-break:normal;hyphens:auto}
+@media(max-width:520px){
+  .document h1{font-size:clamp(1.52rem,6.8vw,1.78rem);line-height:1.11;letter-spacing:-.01em}
+  .short-title{font-size:1.02rem;line-height:1.42}
+  .eyebrow{font-size:.62rem;letter-spacing:.15em}
+}
+@media(max-width:380px){.document h1{font-size:1.46rem}}

@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#000000">
-  <meta name="robots" content="index,follow">
-  <title>WWG</title>
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/favicon.png">
-  <link rel="stylesheet" href="/assets/home.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#000000" name="theme-color"/>
+<meta content="index,follow" name="robots"/>
+<title>WWG</title>
+<link href="/assets/favicon.png" rel="icon" type="image/png"/>
+<link href="/assets/favicon.png" rel="apple-touch-icon"/>
+<link href="/assets/home.css" rel="stylesheet"/>
+<style>
     .service-hotline-link {
       display:inline-block; margin-top:7px; color:inherit; font-size:.92em; opacity:.58;
       text-decoration:none; border-bottom:1px solid rgba(255,255,255,.22);
@@ -17,71 +18,61 @@
     }
     .service-hotline-link:hover,.service-hotline-link:focus-visible {opacity:.95;border-bottom-color:currentColor;}
   </style>
-</head>
+<link href="/assets/i18n.css" rel="stylesheet"/></head>
 <body>
 <main>
-  <button id="adminLogoBtn" class="logo-button" type="button" aria-label="Interner Zugang">
-    <img class="logo" src="/assets/wwg-logo.png" alt="Logo des Weihnachtswichtelgeheimdienstes">
-  </button>
-
-  <div class="countdown-wrap" aria-label="Countdown bis Weihnachten">
-    <div class="countdown-label">Verbleibende Zeit bis zum 24.12.2026</div>
-    <div id="countdown">000:00:00:00:000</div>
-  </div>
-
-  <div class="kicker">Weihnachtswichtelgeheimdienst</div>
-  <h1>ZENTRALE DIENSTSTELLE</h1>
-
-  <section class="panel">
-    <h2 class="panel-title">Wichtelakte aufrufen</h2>
-    <p class="help">Geben Sie das auf Ihrem amtlichen Schreiben ausgewiesene Aktenzeichen ein.</p>
-    <form id="caseForm" class="case-form">
-      <input id="caseInput" class="case-input" type="text"
-             placeholder="WWG-XXX-0000-000"
-             autocomplete="off" autocapitalize="characters"
-             aria-label="Aktenzeichen">
-      <button class="button" type="submit">Akte öffnen</button>
-    </form>
-    <div id="caseError" class="error" aria-live="polite"></div>
-  </section>
-
-  <section class="panel">
-    <h2 class="panel-title">Rechtsgrundlagen</h2>
-    <div class="links">
-      <a class="button secondary" href="/wwgg/">Weihnachtswichtelgeheimhaltungsgesetz (WWGG)</a>
-      <a class="button secondary" href="/wwgg-dv/">WWGG-Durchführungsverordnung (WWGG-DV)</a>
-    </div>
-  </section>
-
-  <div class="footer">
-    WWG · Zentrale Dienststelle für weihnachtliche Aufklärung<br>
-    Zugriff auf Wichtelakten ausschließlich nach Maßgabe des WWGG und der WWGG-DV.<br>
-    <nav class="footer-links" aria-label="Dienststellenlinks">
-      <a class="service-hotline-link" href="/servicehotline/">Servicehotline</a>
-      <span aria-hidden="true">·</span>
-      <a class="service-hotline-link" href="/dienststelle/">Dienststelle &amp; Öffnungszeiten</a>
-      <span aria-hidden="true">·</span>
-      <a class="service-hotline-link" href="/formulare/">Formulare</a>
-      <span aria-hidden="true">·</span>
-      <a class="service-hotline-link emergency-link" href="/notstand/">Notstandsmeldung</a>
-    </nav>
-  </div>
+<button aria-label="Interner Zugang" class="logo-button" id="adminLogoBtn" type="button">
+<img alt="Logo des Weihnachtswichtelgeheimdienstes" class="logo" src="/assets/wwg-logo.png"/>
+</button>
+<div aria-label="Countdown bis Weihnachten" class="countdown-wrap">
+<div class="countdown-label" data-i18n="home.countdown_label">Verbleibende Zeit bis zum 24.12.2026</div>
+<div id="countdown">000:00:00:00:000</div>
+</div>
+<div class="kicker">Weihnachtswichtelgeheimdienst</div>
+<h1 data-i18n="home.title">ZENTRALE DIENSTSTELLE</h1>
+<section class="panel">
+<h2 class="panel-title" data-i18n="home.case_title">Wichtelakte aufrufen</h2>
+<p class="help" data-i18n="home.case_help">Geben Sie das auf Ihrem amtlichen Schreiben ausgewiesene Aktenzeichen ein.</p>
+<form class="case-form" id="caseForm">
+<input aria-label="Aktenzeichen" autocapitalize="characters" autocomplete="off" class="case-input" id="caseInput" placeholder="WWG-XXX-0000-000" type="text"/>
+<button class="button" data-i18n="home.case_button" type="submit">Akte öffnen</button>
+</form>
+<div aria-live="polite" class="error" id="caseError"></div>
+</section>
+<section class="panel">
+<h2 class="panel-title" data-i18n="home.legal_title">Rechtsgrundlagen</h2>
+<div class="links">
+<a class="button secondary" href="/wwgg/">Weihnachtswichtelgeheimhaltungsgesetz (WWGG)</a>
+<a class="button secondary" href="/wwgg-dv/">WWGG-Durchführungsverordnung (WWGG-DV)</a>
+</div>
+</section>
+<div class="footer">
+    WWG · Zentrale Dienststelle für weihnachtliche Aufklärung<br/><span data-i18n="home.footer_access">Zugriff auf Wichtelakten ausschließlich nach Maßgabe des WWGG und der WWGG-DV.</span><br/>
+<nav aria-label="Dienststellenlinks" class="footer-links">
+<a class="service-hotline-link" data-i18n="home.hotline" href="/servicehotline/">Servicehotline</a>
+<span aria-hidden="true">·</span>
+<a class="service-hotline-link" data-i18n="home.office_hours" href="/dienststelle/">Dienststelle &amp; Öffnungszeiten</a>
+<span aria-hidden="true">·</span>
+<a class="service-hotline-link" data-i18n="home.forms" href="/formulare/">Formulare</a>
+<span aria-hidden="true">·</span>
+<a class="service-hotline-link emergency-link" data-i18n="home.emergency" href="/notstand/">Notstandsmeldung</a>
+</nav>
+</div>
 </main>
-  <div id="adminModal" class="admin-modal" aria-hidden="true">
-    <div class="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
-      <button id="adminClose" class="admin-close" type="button" aria-label="Schließen">×</button>
-      <div class="admin-mark">VS – NUR FÜR DEN DIENSTGEBRAUCH</div>
-      <h2 id="adminTitle">Legitimationsprüfung</h2>
-      <p>Legitimationssatz der Behördenleitung eingeben.</p>
-      <form id="adminLoginForm">
-        <input id="adminPassphrase" class="case-input" type="password" autocomplete="current-password" aria-label="Legitimationssatz">
-        <button class="button admin-submit" type="submit">Legitimieren</button>
-      </form>
-      <div id="adminLoginError" class="error" aria-live="polite"></div>
-    </div>
-  </div>
-
-<script src="/assets/backend-config.js"></script>
+<div aria-hidden="true" class="admin-modal" id="adminModal">
+<div aria-labelledby="adminTitle" aria-modal="true" class="admin-dialog" role="dialog">
+<button aria-label="Schließen" class="admin-close" id="adminClose" type="button">×</button>
+<div class="admin-mark" data-i18n="home.admin_mark">VS – NUR FÜR DEN DIENSTGEBRAUCH</div>
+<h2 data-i18n="home.admin_title" id="adminTitle">Legitimationsprüfung</h2>
+<p data-i18n="home.admin_prompt">Legitimationssatz der Behördenleitung eingeben.</p>
+<form id="adminLoginForm">
+<input aria-label="Legitimationssatz" autocomplete="current-password" class="case-input" id="adminPassphrase" type="password"/>
+<button class="button admin-submit" data-i18n="home.admin_button" type="submit">Legitimieren</button>
+</form>
+<div aria-live="polite" class="error" id="adminLoginError"></div>
+</div>
+</div>
+<script src="/assets/i18n.js"></script><script src="/assets/backend-config.js"></script>
 <script src="/assets/home.js"></script>
 </body>
 </html>
