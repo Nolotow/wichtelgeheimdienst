@@ -48,6 +48,7 @@ async function playSignal(){
 }
 
 async function openFile(){
+  if(window.WWG_TRACK) window.WWG_TRACK('unlock');
   tapBtn.disabled = true;
   tapBtn.hidden = true;
   fileStateEl.textContent = "Em processamento";

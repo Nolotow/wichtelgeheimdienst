@@ -39,6 +39,7 @@ async function playBells(){
 }
 
 async function openFile(){
+  if(window.WWG_TRACK) window.WWG_TRACK('unlock');
   tapBtn.classList.remove("show");
   statusEl.textContent="Identität wird überprüft …";
   await sleep(1000);
@@ -49,6 +50,7 @@ async function openFile(){
   await sleep(700);
   nameEl.textContent=recipient;
   revealEl.classList.add("show");
+  if(window.WWG_TRACK) window.WWG_TRACK('reveal');
   statusEl.textContent="";
 }
 

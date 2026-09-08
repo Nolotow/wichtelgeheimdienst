@@ -47,7 +47,7 @@ form.addEventListener("submit", (event) => {
     .replace(/[–—]/g, "-");
 
   if (VALID_CASES.has(normalized)) {
-    window.location.href = "/" + normalized + "/";
+    window.location.href = "/" + normalized + "/?src=manual";
     return;
   }
 
@@ -58,3 +58,33 @@ form.addEventListener("submit", (event) => {
 input.addEventListener("input", () => {
   error.textContent = "";
 });
+
+
+// Verdeckter Zugang zur Behördenleitung
+(() => {
+  const btn=document.getElementById('adminLogoBtn');
+  const modal=document.getElementById('adminModal');
+  const close=document.getElementById('adminClose');
+  const form=document.getElementById('adminLoginForm');
+  const pass=document.getElementById('adminPassphrase');
+  const error=document.getElementById('adminLoginError');
+  if(!btn||!modal||!form) return;
+  const open=()=>{modal.classList.add('show');modal.setAttribute('aria-hidden','false');error.textContent='';pass.value='';setTimeout(()=>pass.focus(),50)};
+  const shut=()=>{modal.classList.remove('show');modal.setAttribute('aria-hidden','true')};
+  btn.addEventListener('click',open); close.addEventListener('click',shut);
+  modal.addEventListener('click',e=>{if(e.target===modal) shut()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') shut()});
+  if(new URLSearchParams(location.search).get('admin')==='1') open();
+  form.addEventListener('submit',async e=>{
+    e.preventDefault(); error.textContent='Legitimation wird geprüft …';
+    const API=String(window.WWG_BACKEND_URL||'').replace(/\/$/,'');
+    if(!API||API.includes('DEIN-WWG-WORKER')){error.textContent='Backend noch nicht eingerichtet.';return}
+    try{
+      const res=await fetch(API+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passphrase:pass.value})});
+      if(!res.ok){error.textContent='Legitimation abgelehnt.';return}
+      const data=await res.json();
+      sessionStorage.setItem('wwg_admin_token',data.token);
+      location.href='/behoerdenleitung/';
+    }catch(_){error.textContent='Verbindung zur Behördenleitung fehlgeschlagen.'}
+  });
+})();

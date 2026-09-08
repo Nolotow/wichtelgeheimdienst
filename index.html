@@ -20,7 +20,9 @@
 </head>
 <body>
 <main>
-  <img class="logo" src="/assets/wwg-logo.png" alt="Logo des Weihnachtswichtelgeheimdienstes">
+  <button id="adminLogoBtn" class="logo-button" type="button" aria-label="Interner Zugang">
+    <img class="logo" src="/assets/wwg-logo.png" alt="Logo des Weihnachtswichtelgeheimdienstes">
+  </button>
 
   <div class="countdown-wrap" aria-label="Countdown bis Weihnachten">
     <div class="countdown-label">Verbleibende Zeit bis zum 24.12.2026</div>
@@ -57,6 +59,21 @@
     <a class="service-hotline-link" href="/servicehotline/">Servicehotline</a>
   </div>
 </main>
+  <div id="adminModal" class="admin-modal" aria-hidden="true">
+    <div class="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <button id="adminClose" class="admin-close" type="button" aria-label="Schließen">×</button>
+      <div class="admin-mark">VS – NUR FÜR DEN DIENSTGEBRAUCH</div>
+      <h2 id="adminTitle">Legitimationsprüfung</h2>
+      <p>Legitimationssatz der Behördenleitung eingeben.</p>
+      <form id="adminLoginForm">
+        <input id="adminPassphrase" class="case-input" type="password" autocomplete="current-password" aria-label="Legitimationssatz">
+        <button class="button admin-submit" type="submit">Legitimieren</button>
+      </form>
+      <div id="adminLoginError" class="error" aria-live="polite"></div>
+    </div>
+  </div>
+
+<script src="/assets/backend-config.js"></script>
 <script src="/assets/home.js"></script>
 </body>
 </html>
