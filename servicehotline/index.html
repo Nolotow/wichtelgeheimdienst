@@ -39,22 +39,27 @@
 
       <div id="activeCall" class="active-call" hidden>
         <div class="phone-orb" aria-hidden="true">
-          <div class="phone-plate">
-            <svg viewBox="0 0 120 120" focusable="false">
-              <path class="phone-body" d="M34 47h52c8 0 14 6 14 14v26c0 8-6 14-14 14H34c-8 0-14-6-14-14V61c0-8 6-14 14-14z"/>
-              <path class="phone-handset" d="M29 28c6-7 16-11 31-11s25 4 31 11c3 3 3 7 1 10l-7 9c-2 3-6 4-9 2-4-2-9-4-16-4s-12 2-16 4c-3 2-7 1-9-2l-7-9c-2-3-2-7 1-10z"/>
-              <circle class="dial-ring" cx="60" cy="73" r="19"/>
-              <circle class="dial-center" cx="60" cy="73" r="7"/>
-              <circle class="dial-hole" cx="60" cy="57" r="3.3"/>
-              <circle class="dial-hole" cx="73" cy="63" r="3.3"/>
-              <circle class="dial-hole" cx="76" cy="77" r="3.3"/>
-              <circle class="dial-hole" cx="67" cy="88" r="3.3"/>
-              <circle class="dial-hole" cx="53" cy="88" r="3.3"/>
-              <circle class="dial-hole" cx="44" cy="77" r="3.3"/>
-              <circle class="dial-hole" cx="47" cy="63" r="3.3"/>
+          <div class="phone-plate phone-plate--sixties">
+            <svg class="retro-phone" viewBox="0 0 160 150" focusable="false">
+              <!-- reduzierte 60er-Jahre-Piktogrammform: großer Hörer, massiver Apparat, übergroße Wählscheibe -->
+              <path class="retro-handset" d="M29 27C42 14 58 10 80 10s38 4 51 17c5 5 5 12 1 17l-10 12c-4 5-10 6-16 3-8-4-16-6-26-6s-18 2-26 6c-6 3-12 2-16-3L28 44c-4-5-4-12 1-17z"/>
+              <path class="retro-body" d="M35 55h90c10 0 18 8 18 18v48c0 10-8 18-18 18H35c-10 0-18-8-18-18V73c0-10 8-18 18-18z"/>
+              <rect class="retro-cradle" x="43" y="49" width="74" height="14" rx="7"/>
+              <circle class="retro-dial-outer" cx="80" cy="98" r="34"/>
+              <circle class="retro-dial-inner" cx="80" cy="98" r="15"/>
+              <circle class="retro-dial-hole" cx="80" cy="69" r="5.6"/>
+              <circle class="retro-dial-hole" cx="98.6" cy="75.8" r="5.6"/>
+              <circle class="retro-dial-hole" cx="109.7" cy="92.9" r="5.6"/>
+              <circle class="retro-dial-hole" cx="106.5" cy="112.5" r="5.6"/>
+              <circle class="retro-dial-hole" cx="90.2" cy="125.2" r="5.6"/>
+              <circle class="retro-dial-hole" cx="69.8" cy="125.2" r="5.6"/>
+              <circle class="retro-dial-hole" cx="53.5" cy="112.5" r="5.6"/>
+              <circle class="retro-dial-hole" cx="50.3" cy="92.9" r="5.6"/>
+              <circle class="retro-dial-hole" cx="61.4" cy="75.8" r="5.6"/>
+              <path class="retro-finger-stop" d="M113 111h13v8h-13z"/>
             </svg>
           </div>
-          <div class="phone-caption">AMTSANSCHLUSS</div>
+          <div class="phone-caption">FERNSPRECHAPPARAT · AMTSANSCHLUSS</div>
         </div>
 
         <div class="call-status">VERBUNDEN · WARTESCHLEIFE</div>
