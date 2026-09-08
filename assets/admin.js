@@ -46,7 +46,7 @@
       const items=[];
       rows.filter(r=>!Number(r.views||0)).forEach(r=>items.push(`${r.case_id} (${r.display_name}) wurde noch nie abgerufen.`));
       rows.filter(r=>Number(r.views||0)>=10).forEach(r=>items.push(`${r.case_id} (${r.display_name}) weist ungewöhnlich viele Aufrufe auf: ${r.views}.`));
-      rows.filter(r=>Number(r.views||0)>0&&!Number(r.reveals||0)).forEach(r=>items.push(`${r.case_id} (${r.display_name}) wurde aufgerufen, die Zielperson aber noch nicht freigegeben.`));
+      rows.filter(r=>Number(r.views||0)>0&&!Number(r.reveals||0)).forEach(r=>items.push(`${r.case_id} (${r.display_name}) wurde aufgerufen, die Akte aber noch nicht vollständig freigegeben.`));
       if(!items.length){ const p=document.createElement('div');p.className='ok';p.textContent='Keine besonderen Vorkommnisse.';alerts.appendChild(p); }
       else items.forEach(x=>{const d=document.createElement('div');d.className='alert';d.textContent=x;alerts.appendChild(d)});
       document.getElementById('updated').textContent='Lagebild aktualisiert: '+new Date().toLocaleString('de-DE');
