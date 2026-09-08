@@ -129,43 +129,70 @@ h1 {
 .connecting-subtitle { margin-top: 8px; font-size: 12px; color: var(--muted); }
 
  .phone-orb {
-  width: 138px;
+  width: 160px;
   margin: 0 auto 22px;
   animation: gentlePulse 2.8s ease-in-out infinite;
 }
 
 .phone-plate {
-  width: 118px;
-  height: 118px;
+  width: 142px;
+  height: 142px;
   margin: 0 auto;
-  border: 2px solid rgba(234,217,161,.48);
-  outline: 1px solid rgba(0,0,0,.38);
-  outline-offset: -6px;
-  border-radius: 10px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.09)),
-    #2f7d52;
-  box-shadow:
-    0 12px 26px rgba(0,0,0,.30),
-    inset 0 0 0 3px rgba(7,39,29,.45),
-    inset 0 1px rgba(255,255,255,.12);
   display: grid;
   place-items: center;
 }
 
-.phone-plate svg { width: 94px; height: 94px; }
-.phone-body, .phone-handset { fill: #e7d8a4; }
-.dial-ring { fill: none; stroke: #173f2e; stroke-width: 5; }
-.dial-center { fill: #173f2e; }
-.dial-hole { fill: #173f2e; }
+.phone-plate--sixties {
+  border: 2px solid rgba(234,217,161,.52);
+  outline: 1px solid rgba(0,0,0,.45);
+  outline-offset: -7px;
+  border-radius: 4px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(0,0,0,.10)),
+    #2f7d52;
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.30),
+    inset 0 0 0 4px rgba(7,39,29,.42),
+    inset 0 1px rgba(255,255,255,.10);
+}
+
+.retro-phone {
+  width: 126px;
+  height: 118px;
+  overflow: visible;
+}
+
+.retro-handset,
+.retro-body {
+  fill: #e7d8a4;
+}
+
+.retro-cradle {
+  fill: #173f2e;
+}
+
+.retro-dial-outer {
+  fill: #173f2e;
+  stroke: #e7d8a4;
+  stroke-width: 3.4;
+}
+
+.retro-dial-inner,
+.retro-dial-hole {
+  fill: #e7d8a4;
+}
+
+.retro-finger-stop {
+  fill: #e7d8a4;
+}
 
 .phone-caption {
   margin-top: 8px;
   font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: .18em;
-  color: rgba(234,217,161,.58);
+  letter-spacing: .12em;
+  color: rgba(234,217,161,.60);
 }
 
 @keyframes gentlePulse {
@@ -243,8 +270,9 @@ footer {
   .hotline-shell { width: min(100% - 20px, 680px); justify-content: flex-start; }
   .agency-head { margin-top: 16px; }
   .call-card { min-height: 410px; border-radius: 16px; }
-  .phone-orb { width: 124px; }
-  .phone-plate { width: 104px; height: 104px; }
+  .phone-orb { width: 142px; }
+  .phone-plate { width: 124px; height: 124px; }
+  .retro-phone { width: 112px; height: 106px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
