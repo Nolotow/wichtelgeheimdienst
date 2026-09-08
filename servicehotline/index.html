@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#071f18" name="theme-color"/>
+<meta content="noindex,follow" name="robots"/>
+<title>WWG · Servicehotline</title>
+<link href="/assets/favicon.png" rel="icon" type="image/png"/>
+<link href="/assets/favicon.png" rel="apple-touch-icon"/>
+<link href="/assets/servicehotline.css" rel="stylesheet"/>
+<link href="/assets/i18n.css" rel="stylesheet"/></head>
+<body>
+<main class="hotline-shell">
+<header class="agency-head">
+<div class="agency-kicker">Weihnachtswichtelgeheimdienst</div>
+<h1 data-i18n="hotline.title">Servicehotline</h1>
+<div class="agency-subline" data-i18n="hotline.subline">Zentrale Dienststelle Weihnachtliche Aufklärung (ZeDiWAu)</div>
+</header>
+<section aria-live="polite" class="call-card">
+<div class="pre-call" id="preCall">
+<p class="intro" data-i18n="hotline.intro">Für Auskünfte zu Wichtelakten, Geschenkangelegenheiten und sonstigen weihnachtlichen Verwaltungsvorgängen steht Ihnen die zentrale Servicehotline zur Verfügung.</p>
+<button class="contact-button" id="contactButton" type="button">
+<img alt="" aria-hidden="true" class="button-phone-image" src="/assets/telefon-wahlscheibe.jpg"/>
+<span data-i18n="hotline.contact">Servicehotline kontaktieren</span>
+</button>
+<p class="availability" data-i18n="hotline.availability">Erreichbarkeit vorbehaltlich verfügbarer Wichtelsachbearbeitung.</p>
+</div>
+<div class="connecting" hidden="" id="connecting">
+<div aria-hidden="true" class="connecting-ring"></div>
+<div class="connecting-title" data-i18n="hotline.connecting">Verbindung wird hergestellt …</div>
+<div class="connecting-subtitle" data-i18n="hotline.gateway">Nordpol-Gateway wird angewählt.</div>
+</div>
+<div class="active-call" hidden="" id="activeCall">
+<div aria-hidden="true" class="phone-orb">
+<div class="call-indicator">
+<div class="call-indicator-ring"></div>
+<img alt="" class="standard-phone-image" src="/assets/telefon-wahlscheibe.jpg"/>
+</div>
+<div class="phone-caption" data-i18n="hotline.active">TELEFONVERBINDUNG AKTIV</div>
+</div>
+<div class="call-status" data-i18n="hotline.status">VERBUNDEN · WARTESCHLEIFE</div>
+<h2 data-i18n="hotline.stay">Bitte bleiben Sie in der Leitung.</h2>
+<p class="queue-message" data-i18n="hotline.msg0" id="queueMessage">Alle Wichtelsachbearbeiter befinden sich derzeit im Gespräch.</p>
+<div class="queue-block">
+<div class="queue-label" data-i18n="hotline.queue_label">Ihre aktuelle Position in der Warteschlange</div>
+<div class="queue-number" id="queueNumber">187.432</div>
+</div>
+<div class="wait-time"><span data-i18n="hotline.wait">Voraussichtliche Wartezeit:</span> <strong id="estimatedTime">wird ermittelt …</strong></div>
+<button class="hangup-button" id="hangupButton" type="button"><span aria-hidden="true" class="hangup-icon">☎</span><span data-i18n="hotline.end">Verbindung beenden</span></button>
+<p class="warning" data-i18n="hotline.warning">Das Beenden der Verbindung kann zum Verlust Ihrer gegenwärtigen Warteschlangenposition führen.</p>
+</div>
+</section>
+<a class="back-link" data-i18n="hotline.back" href="/">Zurück zur Zentralen Dienststelle</a>
+<footer data-i18n="hotline.footer" data-i18n-html="1">WWG · Referat S/HOT · Bürger- und Wichtelservice<br/>Verbindungsdaten werden gemäß den einschlägigen weihnachtlichen Geheimhaltungsvorschriften verarbeitet.</footer>
+</main>
+<audio id="holdMusic" preload="auto" src="/assets/audio/wwg-warteschleife.mp3"></audio>
+<script src="/assets/i18n.js"></script><script src="/assets/servicehotline.js"></script>
+</body>
+</html>
