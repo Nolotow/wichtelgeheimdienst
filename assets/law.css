@@ -9,7 +9,7 @@ a{color:inherit}
 .authority{line-height:1.25}
 .authority strong{display:block;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase}
 .authority span{display:block;font-size:.69rem;color:var(--muted);margin-top:3px}
-.back{margin-left:auto;text-decoration:none;border:1px solid #666;padding:10px 12px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.header-actions{margin-left:auto;display:flex;gap:8px;align-items:stretch}.back{margin-left:0;text-decoration:none;border:1px solid #666;padding:10px 12px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;text-align:center}
 .back:hover,.back:focus{background:#fff;color:#000}
 .page{width:min(1180px,100%);margin:0 auto;padding:30px 18px 70px;display:grid;grid-template-columns:280px minmax(0,760px);gap:42px;justify-content:center}
 .toc{position:sticky;top:94px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;border:1px solid var(--line);background:var(--panel);padding:18px}
@@ -39,7 +39,7 @@ a{color:inherit}
 .paragraph-heading:target{outline:1px solid #666;outline-offset:8px}
 .document-footer{border-top:1px solid var(--line);margin-top:55px;padding-top:18px;color:#777;font-family:Arial,Helvetica,sans-serif;font-size:.7rem;line-height:1.55}
 @media(max-width:850px){.page{display:block;padding-top:22px}.toc{display:none}.mobile-toc{display:block}.site-header .authority span{display:none}}
-@media(max-width:520px){.site-header{padding:8px 12px}.site-header img{width:40px;height:40px}.authority strong{font-size:.61rem;letter-spacing:.1em}.back{padding:8px 9px;font-size:.62rem}.page{padding-left:15px;padding-right:15px}.normtext{font-size:.98rem}}
+@media(max-width:520px){.site-header{padding:8px 10px;flex-wrap:nowrap;gap:8px}.site-header img{width:40px;height:40px}.authority{min-width:0;flex:1}.authority strong{font-size:.56rem;letter-spacing:.085em;overflow-wrap:anywhere}.header-actions{order:initial;width:auto;margin-left:auto;justify-content:center;flex-direction:column;gap:5px;flex:0 0 108px}.back{padding:6px 7px;font-size:.55rem;min-height:30px;flex:0 0 auto;width:100%}.page{padding-left:15px;padding-right:15px;overflow:hidden}.normtext{font-size:.98rem}.document{width:100%;max-width:100%}.mobile-toc{width:100%}}
 
 /* Mobile optimisation for long German legal titles */
 .document h1,.short-title{max-width:100%;overflow-wrap:anywhere;word-break:normal;hyphens:auto}
@@ -49,3 +49,5 @@ a{color:inherit}
   .eyebrow{font-size:.62rem;letter-spacing:.15em}
 }
 @media(max-width:380px){.document h1{font-size:1.46rem}}
+
+body{overflow-x:hidden}.normtext,.normtext p,.paragraph-heading{overflow-wrap:anywhere;word-break:normal}.mobile-toc .toc-inner{max-height:58vh;overflow:auto}
