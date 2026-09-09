@@ -1,57 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#000000">
-  <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>Behördenleitung WWG</title>
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="stylesheet" href="/assets/admin.css">
-
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#000000" name="theme-color"/>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
+<title>Behördenleitung WWG</title>
+<link href="/assets/favicon.png" rel="icon" type="image/png"/>
+<link href="/assets/admin.css" rel="stylesheet"/>
+<link href="/assets/backlink.css" rel="stylesheet"/></head>
 <body>
 <header class="admin-header">
-  <img src="/assets/wwg-logo.png" alt="WWG">
-  <div><div class="eyebrow">VS – NUR FÜR DEN DIENSTGEBRAUCH</div><h1>BEHÖRDENLEITUNG WWG</h1></div>
-  <button id="logoutBtn" class="ghost">Abmelden</button>
+<img alt="WWG" src="/assets/wwg-logo.png"/>
+<div><div class="eyebrow">VS – NUR FÜR DEN DIENSTGEBRAUCH</div><h1>BEHÖRDENLEITUNG WWG</h1></div>
+<button class="ghost" id="logoutBtn">Abmelden</button>
 </header>
 <main>
-  <section id="authGate" class="gate hidden">
-    <h2>Zugriff verweigert</h2>
-    <p>Keine gültige Oberwichtel-Legitimation vorhanden.</p>
-    <a href="/?admin=1" class="button">Legitimation durchführen</a>
-  </section>
-
-  <section id="dashboard" class="hidden">
-    <div class="summary-grid">
-      <article class="summary-card"><span>Gesamtzugriffe</span><strong id="totalViews">–</strong></article>
-      <article class="summary-card"><span>Entsiegelungen</span><strong id="totalUnlocks">–</strong></article>
-      <article class="summary-card"><span>Freigegebene Zielpersonen</span><strong id="totalReveals">–</strong></article>
-      <article class="summary-card"><span>Unberührte Akten</span><strong id="untouched">–</strong></article>
-    </div>
-
-    <section class="panel">
-      <div class="panel-head"><div><div class="eyebrow">Operatives Lagebild</div><h2>Aktenzugriffe</h2></div><button id="refreshBtn" class="ghost">Aktualisieren</button></div>
-      <p class="hint">Es wird nur die zum Aktenzeichen gehörige Zielperson angezeigt. Die Identität des zugehörigen Wichtels wird in dieser Übersicht nicht geführt.</p>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Aktenzeichen</th><th>Zielperson</th><th>Status</th><th>Aufrufe</th><th>Entsiegelt</th><th>Freigegeben</th><th>Quelle</th><th>Gerät</th><th>Erster Zugriff</th><th>Letzter Zugriff</th></tr></thead>
-          <tbody id="statsBody"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="eyebrow">Hinweiswesen</div><h2>Automatische Prüffälle</h2>
-      <div id="alerts" class="alerts"></div>
-    </section>
-
-    <p id="updated" class="updated"></p>
-  </section>
+<section class="gate hidden" id="authGate">
+<h2>Zugriff verweigert</h2>
+<p>Keine gültige Oberwichtel-Legitimation vorhanden.</p>
+<a class="button" href="/?admin=1">Legitimation durchführen</a>
+</section>
+<section class="hidden" id="dashboard">
+<div class="summary-grid">
+<article class="summary-card"><span>Gesamtzugriffe</span><strong id="totalViews">–</strong></article>
+<article class="summary-card"><span>Entsiegelungen</span><strong id="totalUnlocks">–</strong></article>
+<article class="summary-card"><span>Freigegebene Zielpersonen</span><strong id="totalReveals">–</strong></article>
+<article class="summary-card"><span>Unberührte Akten</span><strong id="untouched">–</strong></article>
+</div>
+<section class="panel">
+<div class="panel-head"><div><div class="eyebrow">Operatives Lagebild</div><h2>Aktenzugriffe</h2></div><button class="ghost" id="refreshBtn">Aktualisieren</button></div>
+<p class="hint">Es wird nur die zum Aktenzeichen gehörige Zielperson angezeigt. Die Identität des zugehörigen Wichtels wird in dieser Übersicht nicht geführt.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Aktenzeichen</th><th>Zielperson</th><th>Status</th><th>Aufrufe</th><th>Entsiegelt</th><th>Freigegeben</th><th>Quelle</th><th>Gerät</th><th>Erster Zugriff</th><th>Letzter Zugriff</th></tr></thead>
+<tbody id="statsBody"></tbody>
+</table>
+</div>
+</section>
+<section class="panel">
+<div class="eyebrow">Hinweiswesen</div><h2>Automatische Prüffälle</h2>
+<div class="alerts" id="alerts"></div>
+</section>
+<p class="updated" id="updated"></p>
+</section>
 </main>
 <script src="/assets/backend-config.js"></script>
 <script src="/assets/admin.js"></script>
-
-</body>
+<div style="width:min(1050px,calc(100% - 36px));margin:28px auto 42px"><a class="wwg-global-back" href="/">← Zur Zentralen Dienststelle</a></div></body>
 </html>
