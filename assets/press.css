@@ -1,0 +1,35 @@
+*{box-sizing:border-box}
+body{margin:0;background:#07100b;color:#e4ebe6;font-family:Arial,Helvetica,sans-serif}
+.press-wrap{width:min(1050px,calc(100% - 36px));margin:0 auto;padding:72px 0 72px}
+.press-agency{font-size:11px;letter-spacing:.18em;color:#91a197;text-transform:uppercase}
+.press-wrap h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2.15rem,6vw,4.25rem);margin:.22em 0 .14em}
+.press-lead{max-width:790px;color:#b8c4bc;line-height:1.65;margin:0 0 28px}
+.press-rule{height:1px;background:#34463b;margin:28px 0}
+.press-tools{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:14px;margin:22px 0 30px}
+.press-tools label{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#aebbb3}
+.press-tools input,.press-tools select{width:100%;background:#050a07;color:#e8eee9;border:1px solid #526258;padding:12px 13px;font:400 15px/1.3 Arial,Helvetica,sans-serif}
+.press-count{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#84968a;margin:0 0 8px}
+.press-list{border-top:1px solid #34463b}
+.press-item{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:24px 4px;border-bottom:1px solid #28382f;text-decoration:none;color:inherit;transition:background .15s ease,padding .15s ease}
+.press-item:hover,.press-item:focus-visible{background:#0b1710;padding-left:12px;padding-right:12px;outline:none}
+.press-meta{font-size:11px;line-height:1.55;letter-spacing:.09em;text-transform:uppercase;color:#8fa096}
+.press-meta strong{display:block;color:#c9d3cc;font-weight:700;margin-bottom:3px}
+.press-title{font-family:Georgia,serif;font-size:clamp(1.2rem,2.5vw,1.55rem);line-height:1.28;font-weight:500;margin:0;color:#edf2ee}
+.press-empty{border:1px solid #304238;background:#0a1510;padding:26px;color:#aebbb3;margin-top:18px}
+.press-back{width:min(1050px,calc(100% - 36px));margin:0 auto 42px}
+
+/* detail */
+.release-wrap{width:min(820px,calc(100% - 36px));margin:0 auto;padding:72px 0 58px}
+.release-agency{font-size:11px;letter-spacing:.18em;color:#91a197;text-transform:uppercase}
+.release-type{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#93a298;margin:28px 0 9px}
+.release-date{font-size:13px;color:#b3c0b8;margin-bottom:10px}
+.release-wrap h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2rem,5.7vw,3.8rem);line-height:1.08;margin:.18em 0 .45em;color:#f0f3f1}
+.release-rule{height:1px;background:#34463b;margin:26px 0 30px}
+.release-body{font-size:16px;line-height:1.72;color:#d1dad4}
+.release-body p{margin:0 0 1.15em}
+.release-body blockquote{margin:24px 0;padding:17px 21px;border-left:3px solid #71877a;background:#0b1710;color:#edf1ee;font-family:Georgia,serif;font-size:1.08rem;line-height:1.55}
+.release-body strong{color:#f0f4f1}
+.release-nav{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px;padding-top:22px;border-top:1px solid #34463b}
+.release-nav a{color:#b8c5bd;text-decoration:none;border-bottom:1px solid #53665a;font-size:13px;padding-bottom:2px}
+.release-nav a:hover{color:#fff;border-color:#fff}
+@media(max-width:650px){.press-wrap,.release-wrap{padding-top:68px}.press-tools{grid-template-columns:1fr}.press-item{grid-template-columns:1fr;gap:9px;padding:20px 2px}.press-meta strong{display:inline;margin-right:8px}.release-body{font-size:15px}.release-wrap h1{font-size:2.25rem}}

@@ -1,2 +1,31 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Presse · WWG</title><link href="/assets/favicon.png" rel="icon"/><link href="/assets/career.css" rel="stylesheet"/><link href="/assets/backlink.css" rel="stylesheet"/></head><body><main class="sub-wrap"><div class="agency">Weihnachtswichtelgeheimdienst · ZeDiWAu</div><h1>Presse</h1><div class="placeholder"><p>Der Presse- und Informationsbereich des Weihnachtswichtelgeheimdienstes befindet sich derzeit im Aufbau.</p><p class="muted">Stand: in Bearbeitung</p></div></main><div style="width:min(1050px,calc(100% - 36px));margin:28px auto 42px"><a class="wwg-global-back" href="/">← Zur Zentralen Dienststelle</a></div></body></html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Presse · WWG</title>
+<link href="/assets/favicon.png" rel="icon"/>
+<link href="/assets/i18n.css" rel="stylesheet"/>
+<link href="/assets/backlink.css" rel="stylesheet"/>
+<link href="/assets/press.css" rel="stylesheet"/>
+</head>
+<body>
+<main class="press-wrap" id="pressIndex">
+  <div class="press-agency" data-press-agency>Weihnachtswichtelgeheimdienst · Presse- und Informationsstelle</div>
+  <h1 data-press-title>Presse</h1>
+  <p class="press-lead" data-press-lead>Pressemitteilungen des Weihnachtswichtelgeheimdienstes.</p>
+  <div class="press-rule"></div>
+  <div class="press-tools">
+    <label><span data-search-label>Pressemitteilungen durchsuchen</span><input id="pressSearch" type="search" autocomplete="off" placeholder="Suchbegriff eingeben"/></label>
+    <label><span data-year-label>Jahr</span><select id="pressYear"><option value="">Alle Jahre</option></select></label>
+  </div>
+  <div class="press-count" id="pressCount"></div>
+  <div class="press-list" id="pressList"></div>
+  <div class="press-empty" id="pressEmpty" hidden></div>
+</main>
+<div class="press-back"><a class="wwg-global-back" data-press-back-central href="/">← Zur Zentralen Dienststelle</a></div>
+<script src="/assets/i18n.js"></script>
+<script src="/assets/press-data.js"></script>
+<script src="/assets/press.js"></script>
+</body>
+</html>
