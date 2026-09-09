@@ -29,7 +29,7 @@
     <a href="/karriere/">Karriere</a>
     <a href="/ueber-uns/">Über uns</a>
     <a href="/presse/">Presse</a>
-    <a href="/gesetze-und-normen/">Gesetze und Normen</a>
+    <button class="wwg-laws-toggle" type="button" aria-expanded="false">Gesetze und Normen <span>▸</span></button><div class="wwg-laws-sub"><div class="wwg-subhead">Gesetze</div><a href="/wwgg/">WWGG</a><a href="/wartmodg/">WArtModG</a><div class="wwg-subhead">Rechtsverordnungen</div><a href="/wwgg-dv/">WWGG-DV</a><a href="/wartbewv/">WArtBewV</a><a href="/wartdiguv/">WArtDigÜV</a><div class="wwg-subhead">Verwaltungsvorschriften</div><a href="/wartvwv/">WArtVwV</a><a href="/gesetze-und-normen/">Alle Normen anzeigen</a></div>
     <a href="/sichere-kontaktaufnahme/">Sichere Kontaktaufnahme</a>
   </nav>
 </aside>
@@ -90,5 +90,5 @@
 <script src="/assets/i18n.js"></script><script src="/assets/backend-config.js"></script>
 <script src="/assets/home.js"></script>
 <script src="/assets/mainmenu.js"></script>
-</body>
+<script>document.addEventListener('DOMContentLoaded',()=>{const b=document.querySelector('.wwg-laws-toggle'),s=document.querySelector('.wwg-laws-sub');if(b&&s)b.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));s.classList.toggle('open',!o);b.querySelector('span').textContent=o?'▸':'▾';});});</script></body>
 </html>
