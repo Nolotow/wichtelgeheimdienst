@@ -1,4 +1,16 @@
-const recipient = "Maximilian";
+let recipient = "Maximilian";
+
+async function loadCurrentRecipient(){
+  const API = String(window.WWG_BACKEND_URL || '').replace(/\/$/, '');
+  const m = location.pathname.match(/\/(WWG-[A-Z]{3}-\d{4}-\d{3})(?:\/|$)/i);
+  if(!API || !m) return;
+  try{
+    const res = await fetch(API + '/case/current?caseId=' + encodeURIComponent(m[1].toUpperCase()), {cache:'no-store'});
+    if(!res.ok) return;
+    const data = await res.json();
+    if(data && data.targetName) recipient = data.targetName;
+  }catch(_){}
+}
 
 const statusEl = document.getElementById("status");
 const progressEl = document.querySelector("#progress span");
@@ -48,6 +60,7 @@ async function playSignal(){
 }
 
 async function openFile(){
+  await loadCurrentRecipient();
   if(window.WWG_TRACK) window.WWG_TRACK('unlock');
   tapBtn.disabled = true;
   tapBtn.hidden = true;

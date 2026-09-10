@@ -1,10 +1,10 @@
 (() => {
   const API = String(window.WWG_BACKEND_URL || "").replace(/\/$/, "");
   const match = location.pathname.match(/\/(WWG-[A-Z]{3}-\d{4}-\d{3})(?:\/|$)/i);
-  if (!API || API.includes("DEIN-WWG-WORKER") || !match) return;
-
-  const caseId = match[1].toUpperCase();
   const qs = new URLSearchParams(location.search);
+  const queryCase = (qs.get('case') || '').toUpperCase();
+  const caseId = match ? match[1].toUpperCase() : (/^WWG-[A-Z]{3}-\d{4}-\d{3}$/.test(queryCase) ? queryCase : '');
+  if (!API || API.includes("DEIN-WWG-WORKER") || !caseId) return;
   let source = (qs.get("src") || "").toLowerCase();
   if (!['qr','manual','direct'].includes(source)) source = 'direct';
 

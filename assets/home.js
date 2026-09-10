@@ -1,5 +1,4 @@
 
-const VALID_CASES = new Set(["WWG-PIK-2264-364", "WWG-FXM-3531-803", "WWG-RWP-6425-137", "WWG-IQR-0488-147", "WWG-YEI-4716-916", "WWG-VMB-6184-510", "WWG-SSU-5335-593", "WWG-FBU-0498-434", "WWG-GMK-0422-049"]);
 function getChristmasTarget() {
   const now = new Date();
   const year = now.getFullYear();
@@ -66,7 +65,7 @@ const form = document.getElementById("caseForm");
 const input = document.getElementById("caseInput");
 const error = document.getElementById("caseError");
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const normalized = input.value
@@ -75,8 +74,33 @@ form.addEventListener("submit", (event) => {
     .replace(/\s+/g, "")
     .replace(/[–—]/g, "-");
 
-  if (VALID_CASES.has(normalized)) {
-    window.location.href = "/" + normalized + "/?src=manual";
+  if (!/^WWG-[A-Z]{3}-\d{4}-\d{3}$/.test(normalized)) {
+    error.textContent = window.WWGI18N ? WWGI18N.t("home.case_error", "Aktenzeichen unbekannt oder ungültig.") : "Aktenzeichen unbekannt oder ungültig.";
+    input.focus();
+    return;
+  }
+
+  const API = String(window.WWG_BACKEND_URL || '').replace(/\/$/, '');
+  if (API && !API.includes('DEIN-WWG-WORKER')) {
+    try {
+      const res = await fetch(API + '/case/resolve', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({caseId: normalized})
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const join = data.path.includes('?') ? '&' : '?';
+        window.location.href = data.path + join + 'src=manual';
+        return;
+      }
+    } catch (_) {}
+  }
+
+  // Ausfallsichere Rückwärtskompatibilität für bereits gedruckte Altakten.
+  const legacy = new Set(["WWG-PIK-2264-364","WWG-FXM-3531-803","WWG-RWP-6425-137","WWG-IQR-0488-147","WWG-YEI-4716-916","WWG-VMB-6184-510","WWG-SSU-5335-593","WWG-FBU-0498-434","WWG-GMK-0422-049"]);
+  if (legacy.has(normalized)) {
+    window.location.href = '/' + normalized + '/?src=manual';
     return;
   }
 

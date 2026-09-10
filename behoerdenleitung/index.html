@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
 <meta charset="utf-8"/>
@@ -9,44 +8,125 @@
 <title>Behördenleitung WWG</title>
 <link href="/assets/favicon.png" rel="icon" type="image/png"/>
 <link href="/assets/admin.css" rel="stylesheet"/>
-<link href="/assets/backlink.css" rel="stylesheet"/></head>
+<link href="/assets/backlink.css" rel="stylesheet"/>
+</head>
 <body>
 <header class="admin-header">
-<img alt="WWG" src="/assets/wwg-logo.png"/>
-<div><div class="eyebrow">VS – NUR FÜR DEN DIENSTGEBRAUCH</div><h1>BEHÖRDENLEITUNG WWG</h1></div>
-<button class="ghost" id="logoutBtn">Abmelden</button>
+  <img alt="WWG" src="/assets/wwg-logo.png"/>
+  <div class="admin-title"><div class="eyebrow">VS – NUR FÜR DEN DIENSTGEBRAUCH</div><h1>BEHÖRDENLEITUNG WWG</h1></div>
+  <button class="ghost" id="logoutBtn" type="button">Abmelden</button>
 </header>
 <main>
 <section class="gate hidden" id="authGate">
-<h2>Zugriff verweigert</h2>
-<p>Keine gültige Oberwichtel-Legitimation vorhanden.</p>
-<a class="button" href="/?admin=1">Legitimation durchführen</a>
+  <h2>Zugriff verweigert</h2>
+  <p>Keine gültige Oberwichtel-Legitimation vorhanden.</p>
+  <a class="button" href="/?admin=1">Legitimation durchführen</a>
 </section>
+
 <section class="hidden" id="dashboard">
-<div class="summary-grid">
-<article class="summary-card"><span>Gesamtzugriffe</span><strong id="totalViews">–</strong></article>
-<article class="summary-card"><span>Entsiegelungen</span><strong id="totalUnlocks">–</strong></article>
-<article class="summary-card"><span>Freigegebene Zielpersonen</span><strong id="totalReveals">–</strong></article>
-<article class="summary-card"><span>Unberührte Akten</span><strong id="untouched">–</strong></article>
-</div>
-<section class="panel">
-<div class="panel-head"><div><div class="eyebrow">Operatives Lagebild</div><h2>Aktenzugriffe</h2></div><button class="ghost" id="refreshBtn">Aktualisieren</button></div>
-<p class="hint">Es wird nur die zum Aktenzeichen gehörige Zielperson angezeigt. Die Identität des zugehörigen Wichtels wird in dieser Übersicht nicht geführt.</p>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Aktenzeichen</th><th>Zielperson</th><th>Status</th><th>Aufrufe</th><th>Entsiegelt</th><th>Freigegeben</th><th>Quelle</th><th>Gerät</th><th>Erster Zugriff</th><th>Letzter Zugriff</th></tr></thead>
-<tbody id="statsBody"></tbody>
-</table>
-</div>
-</section>
-<section class="panel">
-<div class="eyebrow">Hinweiswesen</div><h2>Automatische Prüffälle</h2>
-<div class="alerts" id="alerts"></div>
-</section>
-<p class="updated" id="updated"></p>
+  <div class="summary-grid">
+    <article class="summary-card"><span>Aktive Wichtel</span><strong id="activeCount">–</strong></article>
+    <article class="summary-card"><span>Geführte Akten</span><strong id="caseCount">–</strong></article>
+    <article class="summary-card"><span>Nächste Zuteilung</span><strong class="small-value" id="nextDrawShort">–</strong></article>
+    <article class="summary-card"><span>Offene Zuordnungen</span><strong id="unmappedCount">–</strong></article>
+  </div>
+
+  <section class="panel draw-panel">
+    <div class="panel-head">
+      <div><div class="eyebrow">Jährliches Zuteilungsverfahren</div><h2>Nachrichtendienstliche Neueinteilung</h2></div>
+      <button class="ghost compact" id="refreshBtn" type="button">Aktualisieren</button>
+    </div>
+    <p class="hint">Automatische Durchführung jährlich am <strong>01.09. um 19:00 Uhr Europe/Berlin</strong>. Eine Zielperson des unmittelbar vorangegangenen Jahres ist für ein Jahr gesperrt. Selbstzuteilungen und doppelte Zielpersonen sind ausgeschlossen.</p>
+    <div class="draw-grid">
+      <div class="draw-status-card">
+        <span class="field-label">Nächstes Zuteilungsverfahren</span>
+        <strong id="nextDrawLong">–</strong>
+        <div class="mini-grid">
+          <div><span>Aktiv</span><b id="drawActive">–</b></div>
+          <div><span>Vorjahressperren</span><b id="drawLocks">–</b></div>
+          <div><span>Manuelle Ausschlüsse</span><b id="drawExclusions">–</b></div>
+        </div>
+        <div class="action-row">
+          <button class="button" id="previewBtn" type="button">Vorprüfung durchführen</button>
+          <button class="ghost" id="runBtn" type="button">Jetzt durchführen</button>
+        </div>
+        <div class="result-line" id="previewResult" aria-live="polite"></div>
+      </div>
+      <div class="process-box">
+        <div class="field-label">Verfahrensprotokoll</div>
+        <div class="process-empty" id="processEmpty">Für das gewählte Jahr liegt noch kein abgeschlossenes Zuteilungsverfahren vor.</div>
+        <ol class="process-list" id="processList"></ol>
+        <div class="process-final hidden" id="processFinal"></div>
+      </div>
+    </div>
+    <div class="sealed-area hidden" id="sealedArea">
+      <div>
+        <div class="field-label">Festgeschriebene Zuteilung</div>
+        <strong id="sealedTitle">–</strong>
+      </div>
+      <button class="danger-ghost" id="revokeBtn" type="button">Zuteilungsverfahren aufheben</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">Bestandsverwaltung</div><h2>Personen und Akten</h2>
+    <p class="hint">Neue Personen werden als Datenbankakte angelegt. Dadurch verwenden neu angelegte Akten automatisch die jeweils aktuelle Aktenvorlage und müssen bei späteren Erweiterungen nicht als eigene HTML-Seite kopiert werden.</p>
+    <details class="admin-details" open>
+      <summary>Neue Person hinzufügen</summary>
+      <form class="admin-form" id="addPersonForm">
+        <div class="form-grid">
+          <label><span>Name</span><input id="newName" required maxlength="120"/></label>
+          <label><span>Aktenzeichen</span><input id="newCase" placeholder="leer = automatisch" pattern="WWG-[A-Za-z]{3}-[0-9]{4}-[0-9]{3}"/></label>
+          <label><span>Aktensprache</span><select id="newLanguage"><option value="de">Deutsch</option><option value="pt">Português</option><option value="en">English</option></select></label>
+          <label class="check-label"><input id="newActive" type="checkbox" checked/><span>Für nächste Zuteilung aktiv</span></label>
+        </div>
+        <button class="button" type="submit">Akte anlegen</button>
+        <div class="result-line" id="addResult" aria-live="polite"></div>
+      </form>
+    </details>
+
+    <details class="admin-details" id="legacyDetails">
+      <summary>Bestehende Akten einmalig zuordnen <span class="badge" id="legacyBadge">0</span></summary>
+      <p class="hint">Bei den bisherigen statischen Akten ist technisch nur die aktuelle Zielperson bekannt. Ordnen Sie deshalb einmalig jeder Bestandsakte ihren tatsächlichen Inhaber zu. Erst danach kann die automatische Jahreszuteilung diese Personen vollständig berücksichtigen.</p>
+      <div class="legacy-list" id="legacyList"></div>
+    </details>
+
+    <div class="people-list" id="peopleList"></div>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">Zuteilungsausschlüsse</div><h2>Manuelle Sperren</h2>
+    <p class="hint">Ein Ausschluss gilt in beide Richtungen und zusätzlich zu Selbstsperre und einjähriger Wiederholungssperre.</p>
+    <form class="exclusion-form" id="exclusionForm">
+      <select id="exA" required></select><span class="exclude-symbol">↔</span><select id="exB" required></select><button class="button" type="submit">Ausschließen</button>
+    </form>
+    <div class="result-line" id="exResult"></div>
+    <div class="exclusion-list" id="exclusionList"></div>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">Operatives Lagebild</div><h2>Aktenzugriffe</h2>
+    <p class="hint">Zugriffsdaten werden weiterhin getrennt von der jährlichen Zuteilungslogik geführt.</p>
+    <div class="stats-cards" id="statsCards"></div>
+  </section>
+
+  <p class="updated" id="updated"></p>
 </section>
 </main>
+
+<div class="modal hidden" id="revokeModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="revokeTitle">
+    <div class="eyebrow">Sonderverfahren</div><h2 id="revokeTitle">Festgeschriebene Zuteilung aufheben</h2>
+    <p>Dieser Vorgang entfernt die Zuteilung des ausgewählten Jahres. Eine erneute automatische oder manuelle Zuteilung wird anschließend wieder möglich.</p>
+    <label class="reason-label"><span>Begründung</span><textarea id="revokeReason" required placeholder="Begründung der Aufhebung"></textarea></label>
+    <p class="tiny-note">Das Begründungsfeld dient ausschließlich der verfahrensinternen Bestätigung auf diesem Gerät. Der Inhalt wird nicht gespeichert oder an den Server übertragen.</p>
+    <div class="action-row"><button class="ghost" id="cancelRevoke" type="button">Abbrechen</button><button class="danger" id="confirmRevoke" type="button">Aufhebung bestätigen</button></div>
+    <div class="result-line" id="revokeResult"></div>
+  </div>
+</div>
+
 <script src="/assets/backend-config.js"></script>
 <script src="/assets/admin.js"></script>
-<div style="width:min(1050px,calc(100% - 36px));margin:28px auto 42px"><a class="wwg-global-back" href="/">← Zur Zentralen Dienststelle</a></div></body>
+<div class="admin-back"><a class="wwg-global-back" href="/">← Zur Zentralen Dienststelle</a></div>
+</body>
 </html>
