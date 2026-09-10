@@ -45,7 +45,11 @@ async function openFile(){
   await sleep(1000);
   statusEl.textContent="Wichtelakte wird entschlüsselt …";
   await sleep(900);
-  try{ await playBells(); }catch(e){ await sleep(900); }
+  // Der Glockenton ist nur ein Effekt. Mobile Browser können AudioContext
+  // blockieren oder dauerhaft im Status „suspended“ halten. Die Aktenfreigabe
+  // darf deshalb niemals auf die Audiowiedergabe warten.
+  try{ playBells().catch(()=>{}); }catch(e){}
+
   statusEl.textContent="Zuteilung erfolgreich entschlüsselt.";
   await sleep(700);
   nameEl.textContent=recipient;

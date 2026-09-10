@@ -74,7 +74,11 @@ async function openFile(){
   await sleep(700);
 
   authorizationEl.hidden = false;
-  await playSignal();
+
+  // O sinal sonoro é apenas um efeito. Em navegadores móveis, sobretudo no iPhone,
+  // a Web Audio API pode ser bloqueada ou permanecer suspensa. Por isso, a
+  // liberação do processo nunca depende da reprodução do som.
+  try { playSignal().catch(()=>{}); } catch(e) {}
 
   setStep("Deslacrando a designação natalina …", 100);
   await sleep(850);
