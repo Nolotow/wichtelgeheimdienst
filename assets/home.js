@@ -1,13 +1,42 @@
 
 const VALID_CASES = new Set(["WWG-PIK-2264-364", "WWG-FXM-3531-803", "WWG-RWP-6425-137", "WWG-IQR-0488-147", "WWG-YEI-4716-916", "WWG-VMB-6184-510", "WWG-SSU-5335-593", "WWG-FBU-0498-434", "WWG-GMK-0422-049"]);
-const target = new Date("2026-12-24T00:00:00+01:00").getTime();
+function getChristmasTarget() {
+  const now = new Date();
+  const year = now.getFullYear();
+
+  // Weihnachten beginnt am 24. Dezember um 00:00 Uhr (MEZ).
+  // Am 24. Dezember bleibt der Countdown auf 0.
+  // Ab dem 25. Dezember zählt er automatisch bis zum 24. Dezember
+  // des folgenden Jahres. Schaltjahre werden durch Date automatisch
+  // korrekt berücksichtigt.
+  const christmasThisYear = new Date(`${year}-12-24T00:00:00+01:00`).getTime();
+  const christmasDayEnd = new Date(`${year}-12-25T00:00:00+01:00`).getTime();
+
+  if (now.getTime() >= christmasDayEnd) {
+    return new Date(`${year + 1}-12-24T00:00:00+01:00`).getTime();
+  }
+
+  return christmasThisYear;
+}
+
+let target = getChristmasTarget();
 
 function pad(n, len=2) {
   return String(n).padStart(len, "0");
 }
 
 function updateCountdown() {
-  let diff = target - Date.now();
+  const now = Date.now();
+
+  // Falls die Seite über Weihnachten hinweg geöffnet bleibt, wird das
+  // Ziel automatisch für das nächste Jahr neu gesetzt.
+  const currentYear = new Date(now).getFullYear();
+  const christmasDayEnd = new Date(`${currentYear}-12-25T00:00:00+01:00`).getTime();
+  if (now >= christmasDayEnd) {
+    target = getChristmasTarget();
+  }
+
+  let diff = target - now;
   const el = document.getElementById("countdown");
   if (diff <= 0) {
     el.textContent = "000:00:00:00:000";
