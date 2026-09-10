@@ -113,7 +113,7 @@ input.addEventListener("input", () => {
 });
 
 
-// Verdeckter Zugang zur Behördenleitung
+// Verdeckter Zugang zur Behördendirektion
 (() => {
   const btn=document.getElementById('adminLogoBtn');
   const modal=document.getElementById('adminModal');
@@ -138,6 +138,6 @@ input.addEventListener("input", () => {
       const data=await res.json();
       sessionStorage.setItem('wwg_admin_token',data.token);
       location.href='/behoerdenleitung/';
-    }catch(_){error.textContent=window.WWGI18N?WWGI18N.t('home.admin_connection','Verbindung zur Behördenleitung fehlgeschlagen.'):'Verbindung zur Behördenleitung fehlgeschlagen.'}
+    }catch(_){error.textContent=window.WWGI18N?WWGI18N.t('home.admin_connection','Verbindung zur Behördendirektion fehlgeschlagen.'):'Verbindung zur Behördendirektion fehlgeschlagen.'}
   });
 })();

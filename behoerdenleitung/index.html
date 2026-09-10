@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#000000" name="theme-color"/>
 <meta content="noindex,nofollow,noarchive" name="robots"/>
-<title>Behördenleitung WWG</title>
+<title>Behördendirektion WWG</title>
 <link href="/assets/favicon.png" rel="icon" type="image/png"/>
 <link href="/assets/admin.css" rel="stylesheet"/>
 <link href="/assets/backlink.css" rel="stylesheet"/>
@@ -13,7 +13,7 @@
 <body>
 <header class="admin-header">
   <img alt="WWG" src="/assets/wwg-logo.png"/>
-  <div class="admin-title"><div class="eyebrow">VS – NUR FÜR DEN DIENSTGEBRAUCH</div><h1>BEHÖRDENLEITUNG WWG</h1></div>
+  <div class="admin-title"><div class="eyebrow">VS – NUR FÜR DEN DIENSTGEBRAUCH</div><h1>BEHÖRDENDIREKTION WWG</h1></div>
   <button class="ghost" id="logoutBtn" type="button">Abmelden</button>
 </header>
 <main>
@@ -48,7 +48,7 @@
         </div>
         <div class="action-row">
           <button class="button" id="previewBtn" type="button">Vorprüfung durchführen</button>
-          <button class="ghost" id="runBtn" type="button">Jetzt durchführen</button>
+          <button class="ghost" id="runBtn" type="button">Amtliche Zuteilung einleiten</button>
         </div>
         <div class="result-line" id="previewResult" aria-live="polite"></div>
       </div>
@@ -76,7 +76,7 @@
       <form class="admin-form" id="addPersonForm">
         <div class="form-grid">
           <label><span>Name</span><input id="newName" required maxlength="120"/></label>
-          <label><span>Aktenzeichen</span><input id="newCase" placeholder="leer = automatisch" pattern="WWG-[A-Za-z]{3}-[0-9]{4}-[0-9]{3}"/></label>
+          <label><span>Aktenzeichen</span><input id="newCase" placeholder="WWG-XXX-0000-000" pattern="WWG-[A-Za-z]{3}-[0-9]{4}-[0-9]{3}" autocomplete="off"/><small class="field-help">Die Behördendirektion kann ein Aktenzeichen vorgeben. Bleibt das Feld unbefüllt, vergibt das System bei Anlage automatisch ein freies Aktenzeichen nach dem bestehenden WWG-Schema.</small></label>
           <label><span>Aktensprache</span><select id="newLanguage"><option value="de">Deutsch</option><option value="pt">Português</option><option value="en">English</option></select></label>
           <label class="check-label"><input id="newActive" type="checkbox" checked/><span>Für nächste Zuteilung aktiv</span></label>
         </div>
@@ -113,6 +113,37 @@
   <p class="updated" id="updated"></p>
 </section>
 </main>
+
+<div class="modal hidden" id="targetModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="targetModalTitle">
+    <div class="eyebrow">Einsicht in Zuteilungsdaten</div><h2 id="targetModalTitle">Zielperson entsiegeln</h2>
+    <p id="targetModalText">Die nachfolgende Information unterliegt der persönlichen Wichtelgeheimhaltung. Durch die Entsiegelung wird die der ausgewählten Person zugewiesene Zielperson sichtbar.</p>
+    <div class="security-notice"><strong>Hinweis zum Überraschungsschutz</strong><br/>Sofern die Behördendirektion selbst am laufenden Wichtelverfahren teilnimmt, kann die Einsichtnahme den eigenen Überraschungsschutz beeinträchtigen.</div>
+    <div class="sealed-target hidden" id="sealedTargetResult"></div>
+    <div class="action-row"><button class="ghost" id="cancelTargetReveal" type="button">Abbrechen</button><button class="danger-ghost" id="confirmTargetReveal" type="button">Zuteilung entsiegeln</button></div>
+    <div class="result-line" id="targetRevealResult"></div>
+  </div>
+</div>
+
+<div class="modal hidden" id="drawModal" aria-hidden="true">
+  <div class="modal-card draw-confirm-card" role="dialog" aria-modal="true" aria-labelledby="drawModalTitle">
+    <div id="drawStageOne">
+      <div class="eyebrow">Freigabe eines Zuteilungsverfahrens</div><h2 id="drawModalTitle">Amtliche Wichtelzuteilung</h2>
+      <p id="drawIntroText"></p>
+      <div class="confirm-facts" id="drawFacts"></div>
+      <div class="action-row"><button class="ghost" data-close-draw type="button">Abbrechen</button><button class="button" id="drawProceedBtn" type="button">Verfahren zur Freigabe vorlegen</button></div>
+    </div>
+    <div class="hidden" id="drawStageTwo">
+      <div class="eyebrow">Letzte Verfahrensbestätigung</div><h2>Festschreibung der Zuteilungsmatrix</h2>
+      <p>Mit der nachfolgenden Bestätigung wird die Zuteilungsmatrix einmalig berechnet und für das angegebene Wichteljahr festgeschrieben. Eine erneute Berechnung durch wiederholtes Betätigen der Schaltfläche ist ausgeschlossen.</p>
+      <div class="early-warning hidden" id="earlyWarning"><strong>VORZEITIGE VERFAHRENSDURCHFÜHRUNG</strong><br/><span id="earlyWarningText"></span><label class="early-check"><input id="earlyConfirm" type="checkbox"/> <span>Vorzeitige Durchführung ausdrücklich zulassen</span></label></div>
+      <label class="reason-label"><span id="drawPhraseLabel">Bestätigungsphrase</span><input id="drawPhrase" autocomplete="off" spellcheck="false"/></label>
+      <p class="tiny-note">Die erforderliche Bestätigungsphrase wird aus dem jeweiligen Wichteljahr gebildet.</p>
+      <div class="action-row"><button class="ghost" id="drawBackBtn" type="button">Zurück</button><button class="danger" id="drawConfirmBtn" type="button">Amtliche Zuteilung festschreiben</button></div>
+      <div class="result-line" id="drawConfirmResult"></div>
+    </div>
+  </div>
+</div>
 
 <div class="modal hidden" id="revokeModal" aria-hidden="true">
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="revokeTitle">
