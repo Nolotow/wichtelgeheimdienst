@@ -23,6 +23,28 @@
   <button class="tap" id="loginBtn" type="submit">IDENTITÄT BESTÄTIGEN</button>
   <div class="login-result" id="loginResult" role="status" aria-live="polite"></div>
 </form>
+<section class="personal-office" hidden id="personalOffice">
+  <div class="office-status"><span class="status-dot"></span><div><div class="system-label" id="officeLabel">PERSÖNLICHE DIENSTSTELLE</div><strong id="officeState">Dienstzugang hergestellt</strong></div></div>
+  <section class="career-summary" id="careerSummary">
+    <div class="order-preview"><img src="/assets/orden/grundorden.png" alt=""/><div><span id="orderLabel">DIENSTORDEN</span><strong id="orderValue">Ordensstufe 0</strong></div></div>
+    <div class="career-data">
+      <div><span id="departmentLabel">Abteilung</span><strong id="departmentValue">Noch nicht zugeteilt</strong></div>
+      <div><span id="careerLabel">Laufbahnstufe</span><strong id="careerValue">Dienstanwärter</strong></div>
+      <div><span id="promotionLabel">Beförderungsstufe</span><strong id="promotionValue">0</strong></div>
+    </div>
+  </section>
+  <section class="mission-card">
+    <div class="system-label" id="missionLabel">AKTUELLER AUFTRAG</div>
+    <h2 id="missionTitle">Auftragsdienst noch nicht aktiviert</h2>
+    <p id="missionText">Die sichere Verbindung zum WWG-Spielsystem wird in der nächsten Ausbaustufe hergestellt.</p>
+    <button class="tap secondary" id="missionBtn" type="button" disabled>NEUEN AUFTRAG ANFORDERN</button>
+  </section>
+  <nav class="office-actions" aria-label="Aktenbereiche">
+    <button class="office-action primary-action" id="openFileBtn" type="button"><span id="openFileTitle">AKTE ENTSIEGELN</span><small id="openFileNote">Weihnachtszuteilung öffnen</small></button>
+    <button class="office-action" type="button" disabled><span id="longMissionTitle">LANGZEITMISSIONEN</span><small id="longMissionNote">Noch nicht aktiviert</small></button>
+    <button class="office-action" id="careerBtn" type="button"><span id="careerButtonTitle">DIENSTLAUFBAHN / ORDEN</span><small id="careerButtonNote">Aktuellen Dienststand anzeigen</small></button>
+  </nav>
+</section>
 <button class="tap" hidden id="tapBtn" type="button">AKTE ENTSIEGELN</button>
 <section class="authorization" hidden id="authorization"><div class="stamp" id="stamp">FREIGABE<br/>BESTÄTIGT</div><div><div class="section-kicker" id="decisionLabel">ZUGRIFFSENTSCHEIDUNG</div><p id="decisionText">Der Zugriff auf die vorliegende Wichtelakte wurde freigegeben.</p></div></section>
 <section class="reveal" hidden id="reveal"><div class="section-kicker" id="assignmentKicker">WEIHNACHTLICHE ZUTEILUNG BESTÄTIGT</div><div class="label" id="assignmentLabel">Die der vorliegenden Akte zugeteilte Zielperson lautet</div><div class="name" id="name"></div><div class="seal-note" id="sealNote">Identität ausschließlich für die berechtigte Person freigegeben.</div></section>
