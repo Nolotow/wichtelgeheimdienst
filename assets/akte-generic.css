@@ -47,7 +47,7 @@ body{padding:20px}
 .office-status strong{display:block;margin-top:5px;font-size:.88rem}
 .career-summary{display:grid;grid-template-columns:minmax(180px,.8fr) 1.2fr;border:1px solid var(--line);border-top:0}
 .order-preview{display:flex;align-items:center;gap:12px;padding:18px;border-right:1px solid var(--line)}
-.order-stack{position:relative;flex:0 0 100px;width:100px;height:100px}.order-stack>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.order-stack .order-layer{display:none}.order-preview small{display:block;margin-top:7px;color:var(--muted);font-size:.7rem}.star-slot{position:absolute;width:27%;height:27%;background:center/contain no-repeat}.star-slot-1{left:9%;top:17%}.star-slot-2{right:9%;top:17%}.star-slot-3{left:9%;bottom:14%}.star-slot-4{right:9%;bottom:14%}
+.order-stack{position:relative;flex:0 0 100px;width:100px;height:100px}.order-stack>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.order-stack .order-layer{display:none}.order-preview small{display:block;margin-top:7px;color:var(--muted);font-size:.7rem}.star-slot{position:absolute;width:22%;height:22%;background-position:center;background-size:1000% 1000%;background-repeat:no-repeat;z-index:5}.star-slot-1{left:29%;bottom:23%}.star-slot-2{right:29%;bottom:23%}.star-slot-3{left:29%;top:28%}.star-slot-4{right:29%;top:28%}
 .order-preview span,.career-data span{display:block;color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
 .order-preview strong{display:block;margin-top:6px;font-size:.9rem}
 .career-data{display:grid;align-content:center}
