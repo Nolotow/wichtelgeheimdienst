@@ -47,7 +47,7 @@ body{padding:20px}
 .office-status strong{display:block;margin-top:5px;font-size:.88rem}
 .career-summary{display:grid;grid-template-columns:minmax(180px,.8fr) 1.2fr;border:1px solid var(--line);border-top:0}
 .order-preview{display:flex;align-items:center;gap:12px;padding:18px;border-right:1px solid var(--line)}
-.order-preview img{width:82px;height:82px;object-fit:contain}
+.order-stack{position:relative;flex:0 0 100px;width:100px;height:100px}.order-stack>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.order-stack .order-layer{display:none}.order-preview small{display:block;margin-top:7px;color:var(--muted);font-size:.7rem}.star-slot{position:absolute;width:27%;height:27%;background:center/contain no-repeat}.star-slot-1{left:9%;top:17%}.star-slot-2{right:9%;top:17%}.star-slot-3{left:9%;bottom:14%}.star-slot-4{right:9%;bottom:14%}
 .order-preview span,.career-data span{display:block;color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
 .order-preview strong{display:block;margin-top:6px;font-size:.9rem}
 .career-data{display:grid;align-content:center}
@@ -57,6 +57,7 @@ body{padding:20px}
 .mission-card{margin-top:18px;border:1px solid var(--line);background:#030805;padding:18px}
 .mission-card h2{margin:10px 0 8px;font-size:1.1rem}
 .mission-card p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55}
+.mission-meta{display:flex;justify-content:space-between;gap:14px;margin-top:10px;color:#aebbb4;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}.mission-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mission-actions .tap{margin-top:16px}.mission-batch{display:flex;justify-content:space-between;gap:14px;margin-top:15px;padding-top:12px;border-top:1px solid #1f3027;color:var(--muted);font-size:.73rem}.mission-batch strong{color:var(--fg)}
 .tap.secondary{background:transparent;color:var(--muted);border-color:#3c4d44}
 .tap:disabled,.office-action:disabled{cursor:not-allowed;opacity:.55}
 .office-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
@@ -66,3 +67,4 @@ body{padding:20px}
 .office-action small{display:block;margin-top:7px;color:#93a198;font-size:.69rem}
 .office-action.primary-action small{color:#425047}
 @media(max-width:560px){.career-summary{grid-template-columns:1fr}.order-preview{border-right:0;border-bottom:1px solid var(--line)}.office-actions{grid-template-columns:1fr}.office-action{min-height:70px}}
+@media(max-width:560px){.mission-actions{grid-template-columns:1fr}.mission-actions .tap{margin-top:10px}}
