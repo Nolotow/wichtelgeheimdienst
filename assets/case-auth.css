@@ -1,0 +1,8 @@
+.case-login{margin-top:18px;border:1px solid var(--line);padding:18px}
+.case-login[hidden]{display:none}
+.case-login label{display:block;color:var(--muted);font-size:.76rem;letter-spacing:.05em;margin-bottom:8px}
+.case-login input{width:100%;min-height:46px;border:1px solid #46584e;background:#020604;color:var(--fg);font:inherit;padding:10px 12px;border-radius:0}
+.case-login input:focus{outline:2px solid #b9c9bf;outline-offset:2px}
+.login-result{min-height:1.4em;margin-top:10px;color:#d8aaa5;font-size:.78rem}
+.case-logout{display:block;margin:18px auto 0;border:0;border-bottom:1px solid #46534b;background:transparent;color:#839188;padding:2px 0;font-size:.68rem;cursor:pointer}
+.case-logout[hidden]{display:none}

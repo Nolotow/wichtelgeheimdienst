@@ -8,6 +8,7 @@
 <title>WWG – Wichtelakte</title>
 <link href="/assets/favicon.png" rel="icon" type="image/png"/>
 <link href="/assets/akte-generic.css" rel="stylesheet"/>
+<link href="/assets/case-auth.css" rel="stylesheet"/>
 </head>
 <body>
 <main class="file-shell">
@@ -16,10 +17,17 @@
 <section class="metadata"><div class="meta-row"><span id="caseLabel">Aktenzeichen</span><strong id="caseId">–</strong></div><div class="meta-row"><span id="categoryLabel">Kategorie</span><strong id="categoryValue">Individuelle Weihnachtszuteilung</strong></div><div class="meta-row"><span id="stateLabel">Status</span><strong id="fileState">Authentifizierung ausstehend</strong></div></section>
 <div class="divider"></div>
 <section class="system-panel"><div class="system-label" id="protocolLabel">ZUGRIFFSPROTOKOLL</div><div class="status" id="status">Zugangsdaten werden geladen …</div><div class="progress"><span id="progress"></span></div></section>
+<form class="case-login" hidden id="caseLoginForm">
+  <label for="casePassword" id="passwordLabel">Persönliches Aktenkennwort</label>
+  <input id="casePassword" name="password" type="password" autocomplete="current-password" minlength="12" maxlength="128" required/>
+  <button class="tap" id="loginBtn" type="submit">IDENTITÄT BESTÄTIGEN</button>
+  <div class="login-result" id="loginResult" role="status" aria-live="polite"></div>
+</form>
 <button class="tap" hidden id="tapBtn" type="button">AKTE ENTSIEGELN</button>
 <section class="authorization" hidden id="authorization"><div class="stamp" id="stamp">FREIGABE<br/>BESTÄTIGT</div><div><div class="section-kicker" id="decisionLabel">ZUGRIFFSENTSCHEIDUNG</div><p id="decisionText">Der Zugriff auf die vorliegende Wichtelakte wurde freigegeben.</p></div></section>
 <section class="reveal" hidden id="reveal"><div class="section-kicker" id="assignmentKicker">WEIHNACHTLICHE ZUTEILUNG BESTÄTIGT</div><div class="label" id="assignmentLabel">Die der vorliegenden Akte zugeteilte Zielperson lautet</div><div class="name" id="name"></div><div class="seal-note" id="sealNote">Identität ausschließlich für die berechtigte Person freigegeben.</div></section>
 <footer class="file-footer" id="footerText">WWG · ZeDiWAu · Aufruf unterliegt der weihnachtlichen Geheimhaltung.</footer>
+<button class="case-logout" hidden id="logoutBtn" type="button">Gerätezugang aufheben</button>
 <a class="wwg-case-back" href="/" id="backLink">Zur Zentralen Dienststelle</a>
 </main>
 <script src="/assets/backend-config.js"></script><script src="/assets/tracker.js"></script><script src="/assets/akte-generic.js"></script>
